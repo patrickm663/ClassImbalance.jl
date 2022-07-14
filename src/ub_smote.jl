@@ -1,5 +1,6 @@
 import Random
 import StatsBase
+import DataFrames
 
 function _smote(X::Array, y, k = 5, pct_over = 200, pct_under = 200)
     typ = eltype(y)

@@ -2,6 +2,7 @@ import Distributions
 import LinearAlgebra
 import Statistics
 import StatsBase
+import DataFrames
 
 ncol(df::DataFrames.AbstractDataFrame) = size(df, 2)
 
