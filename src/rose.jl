@@ -1,10 +1,7 @@
-import Distributions
-import LinearAlgebra
-import Statistics
-import StatsBase
-import DataFrames
+using Distributions, LinearAlgebra, Statistics
+using StatsBase, DataFrames
 
-ncol(df::DataFrames.AbstractDataFrame) = size(df, 2)
+ncol(df::AbstractDataFrame) = size(df, 2)
 
 ncol(m::AbstractMatrix) = size(m, 2)
 
@@ -142,8 +139,8 @@ function classlabel(
 end
 
 function rose(
-        dat::DataFrames.DataFrame,
-        y_column::Symbol,
+        dat::DataFrame,
+        y_column,
         prop::Float64 = 0.5,
         h_mult_maj = 1,
         h_mult_min = 1,

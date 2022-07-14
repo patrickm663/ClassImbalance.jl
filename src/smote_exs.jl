@@ -1,5 +1,4 @@
-import DataFrames
-import StatsBase
+using DataFrames, StatsBase
 
 # d = readtable("./data/people.csv", makefactors = true)
 
@@ -18,7 +17,7 @@ function dataframe_to_matrix(dat, factor_indcs, n, p)
 end
 
 # Convert matrix to DataFrames.DataFrame or DataTable object
-function matrix_to_dataframe(X_new::Array{Float64, 2}, dat::DataFrames.DataFrame, factor_indcs::Array{Int, 1})
+function matrix_to_dataframe(X_new::Array{Float64, 2}, dat::DataFrame, factor_indcs::Array{Int, 1})
     X_synth = DataFrames.DataFrame()
     p = size(X_new, 2)
     for j = 1:p
@@ -31,7 +30,7 @@ function matrix_to_dataframe(X_new::Array{Float64, 2}, dat::DataFrames.DataFrame
     X_synth
 end
 
-function smote_obs(dat::DataFrames.DataFrame, pct = 200, k = 5, column_names = names(dat))
+function smote_obs(dat::DataFrame, pct = 200, k = 5, column_names = names(dat))
     if pct < 1
         @warn("Percent over-sampling cannot be less than 1. Setting `pct` to 1.")
     end

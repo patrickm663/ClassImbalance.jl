@@ -1,6 +1,6 @@
-import Random
-import StatsBase
-import DataFrames
+using Random
+using StatsBase
+using DataFrames
 
 function _smote(X::Array, y, k = 5, pct_over = 200, pct_under = 200)
     typ = eltype(y)
@@ -31,7 +31,7 @@ function _smote(X::Array, y, k = 5, pct_over = 200, pct_under = 200)
 end
 
 
-function _smote(X::DataFrames.DataFrame, y, k = 5, pct_over = 200, pct_under = 200)
+function _smote(X::DataFrame, y, k = 5, pct_over = 200, pct_under = 200)
     typ = eltype(y)
     minority_indcs = findall(y .== one(typ))
     n, p = size(X)

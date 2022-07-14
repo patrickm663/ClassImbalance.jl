@@ -2,9 +2,9 @@
 # https://github.com/bcbi/PredictMD.jl
 # https://predictmd.net
 
-import DataFrames
+using DataFrames
 
-const RealOrMissing = Union{DataFrames.Missing, T} where T<:Real
+const RealOrMissing = Union{Missing, T} where T<:Real
 
 function factor_columns(dat)
     p = size(dat, 2)
